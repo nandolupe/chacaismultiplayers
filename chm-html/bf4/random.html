@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html ng-app="mainModule" ng-controller="mainController">
+
+<head>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89150023-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89150023-1');
+</script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>{{ message.title }}</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<style>
+input, textarea{
+	color: black;
+}
+
+div.time {
+	float:left;
+	border-right: 50px;
+}
+</style>
+<!-- Theme CSS -->
+<link href="css/grayscale.min.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<script src="js/jquery.min.js"></script>	
+	
+<script>
+
+	var mapas = {
+		// vanilla
+		mp_tremors : {nameMap: "Dawnbreaker", nameMapPtBr: "Raiar do Sol"},
+		mp_flooded : {nameMap: "Flood Zone", nameMapPtBr: "Área Inundada"},
+		mp_journey : {nameMap: "Golmud Railway", nameMapPtBr: "Ferrovia Golmud"},
+		mp_resort : {nameMap: "Hainan Resort", nameMapPtBr: "Retiro em Hainan"},
+		mp_damage : {nameMap: "Lancang Dam", nameMapPtBr: "Represa Lancang"},
+		mp_prison : {nameMap: "Operation Locker", nameMapPtBr: "Operação Locker"},
+		mp_naval : {nameMap: "Paracel Storm", nameMapPtBr: "Tormenta em Paracel"},
+		mp_thedish : {nameMap: "Rouge Transmisson", nameMapPtBr: "Transmissão Pirata"},
+		mp_siege : {nameMap: "Siege of Shanghai", nameMapPtBr: "Cerco a Xangai"},
+		mp_abandoned : {nameMap: "Zavod 311", nameMapPtBr: "Zavod 311"},
+
+		// China Rising
+		xp1_001 : {nameMap: "Silk Road", nameMapPtBr: "Rota da Seda"},
+		xp1_002 : {nameMap: "Altai Range", nameMapPtBr: "Montanhas Altai"},
+		xp1_003 : {nameMap: "Guilin Peaks", nameMapPtBr: "Serra de Guilin"}, 
+		xp1_004 : {nameMap: "Dragon Pass", nameMapPtBr: "Desfilad. Dragão"},
+
+		// Second Assault
+		xp0_caspian : {nameMap: "Caspain Border", nameMapPtBr: "Fronteira Caspiana 2014"},
+		xp0_oman : {nameMap: "Gulf of Oman", nameMapPtBr: "Golfo de Omã 2014"},
+		xp0_firestorm : {nameMap: "Operation Firestorm", nameMapPtBr: "Operação Firestorm 2014"},
+		mp_012_firestorm : {nameMap: "Operation Firestorm", nameMapPtBr: "Operação Firestorm 2014"},
+		xp0_metro : {nameMap: "Operation Metro", nameMapPtBr: "Operação Metrô 2014"},
+
+		// Naval Strike
+		xp2_001 : {nameMap: "Lost Islands", nameMapPtBr: "Ilhas Perdidas"},
+		xp2_002 : {nameMap: "Nansha Strike", nameMapPtBr: "Ataque a Nansha"},
+		xp2_003 : {nameMap: "Wave Breaker", nameMapPtBr: "Quebra Ondas"},
+		xp2_004 : {nameMap: "Operation Mortar", nameMapPtBr: "Operação Morteiro"},
+
+		// Dragon's Teeth
+		xp3_urbangdn : {nameMap: "Lumphini Garden", nameMapPtBr: "Jardim Lumphini"},
+		xp3_marketpl : {nameMap: "Pearl Market", nameMapPtBr: "Mercado de Pérolas"},
+		xp3_prpganda : {nameMap: "Propaganda", nameMapPtBr: "Propaganda"},
+		xp3_wtrfront : {nameMap: "Sunken Dragon", nameMapPtBr: "Dragão Submerso"},
+
+		// Final Stand
+		xp4_wlkrftry : {nameMap: "Giants of Karelia", nameMapPtBr: "Gigantes de Karelia"},
+		xp4_subbase : {nameMap: "Hammerhead", nameMapPtBr: "Cabeça de Martelo"},
+		xp4_titan : {nameMap: "Hangar 21", nameMapPtBr: "Hangar 21"},
+		xp4_arctic : {nameMap: "Operation Whiteout", nameMapPtBr: "Operação Branco Total"},
+
+		// Additional, free DLCs - night map, CMP, Dragon Valley
+		// and everything that goes after
+		xp5_night_01 : {nameMap: "Zavod: Graveyard Shift", nameMapPtBr: "Zavood: Turno da Noite"},
+		xp6_cmp : {nameMap: "Operation Outbreak", nameMapPtBr: "Operação Surto"},
+		xp7_valley : {nameMap: "Dragon Valley 2015", nameMapPtBr: "Vale do Dragão 2015"}
+	};
+	
+	buscarMapa = function(mapId) {
+		return mapas[mapId.toLocaleLowerCase()].nameMapPtBr;
+	};
+	
+	(function($){
+		$.fn.shuffle = function() {
+			return this.each(function(){
+				var items = $(this).children();
+				return (items.length) ? $(this).html($.shuffle(items)) : this;
+			});
+		}
+		
+		$.shuffle = function(arr) {
+			for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+			return arr;
+		}
+		
+	})(jQuery);
+
+	function randomize() {
+			
+		if ($('#nome').val().trim() == '') {	
+			alert('Informe os participantes.')
+			return false;
+		}
+				
+		var qtTm = $('#qtTm').val();
+		if (qtTm != '') {
+			// limpa os participantes
+			$('#campos').find('li').remove();
+			// limpa os times
+			$('#tms').find('div').remove();
+			
+			addChild();
+			randomMap();
+			
+			$('#hoje').html("Sorteio gerado em: " + new Date());
+			
+			$.getJSON("http://jsonip.com/?callback=?", function (data) {
+				$('#ip').html("Gerado por: " + data.ip);
+			});
+			
+			var itensCampo = $('#campos').children().clone(true);
+			var itemsRamdom = $.shuffle(itensCampo);
+			
+			var campos1 = [];
+			var campos2 = [];
+			
+			
+			
+			for (var i = 0; i < qtTm; i++) {
+				$('#tms').append('<div class="time">Time ' + (i+1) + '<ul id="tm' + (i+1) + '" ></ul></div>');
+			}
+			
+			var cont = 1;
+
+			for (var j = 0; j < itemsRamdom.length; j++) {
+				$('#tm'+cont).append(itemsRamdom[j]);
+				if (cont == qtTm) {
+					cont = 1;
+				} else {
+					cont++;
+				}
+			}
+			
+			$('#panel-result').show();
+		} else {
+			alert("Informe a quantidade de times")
+		}
+	}
+	
+	function addChild() {
+		if ($('#nome').val() != '') {
+			var nomesArray = $('#nome').val().split('\n');
+			
+			for (var i = 0; i < nomesArray.length; i++) {
+				
+				if (nomesArray[i].trim() != '') {
+					$('#campos').append('<li>' + nomesArray[i] + '</li>')
+				}
+			}
+		}
+	}
+	
+	function randomMap() {
+		var qtdMp = $('#qtMp').val();
+		
+		if (qtdMp != '') {
+			var  maps = [];
+			
+			var mapsClassic = ["mp_tremors", "mp_flooded", "mp_journey", "mp_resort", "mp_damage", "mp_prison", "mp_naval", "mp_thedish", "mp_siege", "mp_abandoned"];
+			var mapsChinaRising = ["xp1_001","xp1_002","xp1_003","xp1_004"];
+			var mapsSecondAssault = ["xp0_caspian","xp0_oman","xp0_firestorm","mp_012_firestorm","xp0_metro"];
+			var mapsNavalStrike = ["xp2_001","xp2_002","xp2_003","xp2_004"];
+			var mapsDragonsTeeth = ["xp3_urbangdn","xp3_marketpl","xp3_prpganda","xp3_wtrfront"];
+			var mapsFinalStand = ["xp4_wlkrftry","xp4_subbase","xp4_titan","xp4_arctic"];
+			var mapsAdditional = ["xp5_night_01","xp6_cmp","xp7_valley"];
+			
+			if ($('#isMapaClassico')[0].checked) {
+				maps = $.merge(maps, mapsClassic);
+			}
+			
+			if ($('#isMapaDLC')[0].checked) {
+				maps = $.merge(maps, mapsChinaRising);
+				maps = $.merge(maps, mapsSecondAssault);
+				maps = $.merge(maps, mapsSecondAssault);
+				maps = $.merge(maps, mapsNavalStrike);
+				maps = $.merge(maps, mapsDragonsTeeth);
+				maps = $.merge(maps, mapsFinalStand);
+				maps = $.merge(maps, mapsAdditional);
+			}
+			
+			if (maps.length != 0) {
+				var mapsRandom = $.shuffle(maps);
+				
+				$('#maps').find('div').remove();
+				
+				var contMap = 1;
+				
+				for (var i = 0; i < qtdMp; i++) {
+					if (contMap == maps.length) {
+						contMap = 1;
+					}
+					
+					var mapaEscolhido = mapsRandom[contMap];
+					
+					$('#maps').append('<div style="float:left;" ><span style="color: white; position: absolute; margin-left: 20px; margin-top: 20px;" ><span style="font-size: 16px; font-weight: bolder;">' + buscarMapa(mapaEscolhido) + '<br />Mapa '+ (i+1) + '</span></span><img class="slide-image" src="../bf4/img/bf4/maps_medium/' + mapaEscolhido + '.jpg" alt="' + mapaEscolhido + '" /></div>');
+					contMap++;
+				}
+			}
+		}
+	}
+</script>
+
+</head>
+
+<body id="page-top" data-spy="scroll" style="background-image: url(img/977C7FC16.jpg);" data-target=".navbar-fixed-top" ng-app="mainModule">
+	<!-- Navigation -->
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+					Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="../index.html#page-top"> <i
+					class="fa"></i><span class="light"><img
+						src="img/chacais-logo.png" /></span> {{ message.title }}
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a class="page-scroll" href="quero-ser-chm.html">Faça Parte</a></li>
+					<li><a class="page-scroll" href="../index.html#divisoes">Games</a></li>
+					<li><a class="page-scroll" href="../index.html#sobre">Sobre</a></li>
+					<li><a class="page-scroll" href="../index.html#contact">Contato</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	<!-- /.container -->
+	</nav>
+	
+	<!-- About Section -->
+	<section id="server" class="container content-section text-left" ng-controller="mainController">
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">Sortear Times e Mapas</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div class="col-lg-3">
+							<div class="form-group">
+								<label>Participantes</label><textarea class="form-control" id="nome" rows="10" name="nome" ></textarea>
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<div class="form-group">
+								<label>Quantidade de Times</label><input type="text" id="qtTm" name="qtTm" maxlength="3" data-min="0" class="form-control bfh-number" value="2" />
+							</div>
+							<div class="form-group">
+								<label>Quantidade de Mapas</label><input type="text" id="qtMp" name="qtMp" maxlength="3" data-min="0" class="form-control bfh-number" />
+							</div>
+							<div class="form-check">
+								<label><input type="checkbox" id="isMapaClassico" name="isMapaClassico" value="S" checked="checked" class="form-check-input" /> Mapas Classico</label> 
+							</div>
+							<div class="form-check">
+								<label><input type="checkbox" id="isMapaDLC" name="isMapaDLC" value="S" class="form-check-input" /> Mapas DLC</label>
+							</div>
+							<input type="button" class="btn btn-default btn-lg" onclick="randomize()" style="margin-top:8px;" value="Sortear" />
+						</div>
+					</div>
+					<!-- /.panel-body -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel panel-default" id="panel-result" >
+					<div class="panel-heading">Resultado - <span id="hoje" ></span> - <span id="ip" ></span></div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div class="col-lg-3">
+							<div class="panel panel-default">
+								<div class="panel-heading">Participantes</div>
+								<!-- /.panel-heading -->
+								<div class="panel-body">
+									<ul name="campos" id="campos" ></ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-9">
+							<div class="panel panel-default">
+								<div class="panel-heading">Times</div>
+								<!-- /.panel-heading -->
+								<div class="panel-body">
+									<div id="tms"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">Mapas</div>
+								<!-- /.panel-heading -->
+								<div class="panel-body">
+									<div id="maps" ></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Footer -->
+	<footer>
+		<div class="container text-center">
+			<p>{{message.copyright}}</p>
+		</div>
+	</footer>
+	<script>
+		$('#panel-result').hide();
+	</script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>

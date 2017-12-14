@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89150023-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89150023-1');
+</script>
+
+<title>[CHM] - CHACAIS MULTIPLAYERS</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+
+<!-- Theme CSS -->
+<link href="css/grayscale.min.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" style="background-image: url(img/977C7FC16.jpg);" data-target=".navbar-fixed-top" ng-app="mainModule">
+	<!-- Navigation -->
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-main-collapse">
+					Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="../index.html#page-top"> <i
+					class="fa"></i><span class="light"><img
+						src="img/chacais-logo.png" /></span> [CHM] CHACAIS MULTIPLAYERS
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div
+				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a class="page-scroll" href="servers.html">Server</a></li>
+					<li><a class="page-scroll" href="../index.html#divisoes">Games</a></li>
+					<li><a class="page-scroll" href="../index.html#sobre">Sobre</a></li>
+					<li><a class="page-scroll" href="../index.html#contact">Contato</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	<!-- /.container -->
+	</nav>
+	
+	<section id="server" class="container content-section text-left" ng-if="isAvailable == 'utilizar'" ng-controller="mainController">
+		<div class="col-lg-8">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">Informações sobre o Servidor</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div class="table-responsive">
+							<div class="form-group">
+								<label class="label-form-small" >Nome do Server:</label>
+								{{gridOptions.message.SERVER_INFO.name}}
+							</div>
+							<div class="form-group">
+								<label class="label-form-small">Tipo do Server:</label>
+								{{buscarTipoServidor(gridOptions.message.SERVER_INFO.mapMode)}}
+							</div>
+							<div class="form-group">
+								<label class="label-form-small">Mapa Atual:</label>
+								{{buscarMapa(gridOptions.message.SERVER_INFO.map)}}
+							</div>
+							<div class="form-group">
+								<label class="label-form-small">Mensagem do Server:</label>
+								{{gridOptions.message.SERVER_INFO.extendedInfo.message}}
+							</div>
+							<div class="form-group">
+								<label class="label-form-small">Descrição do Server:</label>
+								{{gridOptions.message.SERVER_INFO.extendedInfo.desc}} <br />
+							</div>
+							<div class="form-group">
+								<label class="label-form-small">Banner do Server:</label><br /> <img
+									src="{{gridOptions.message.SERVER_INFO.extendedInfo.bannerUrl.substr(1, gridOptions.message.SERVER_INFO.extendedInfo.bannerUrl.length )}}"
+									style="width: 300px; height: inherit;" /><br />
+							</div>
+							<div class="form-group">
+								<label class="label-form-small">Expansões:</label><br /> 
+								<span ng-repeat="ge in gridOptions.message.SERVER_INFO.gameExpansions" >
+									<img ng-if="ge != 0" src="../bf4/img/bf4/expansions/{{ge}}.gif" alt="{{getGameExpansions(ge)}}" data-tooltip="{{getGameExpansions(ge)}}" />
+								</span>
+							</div>
+						</div>
+						<!-- /.table-responsive -->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+			</div>
+			<div class="row carousel-holder">
+				<div class="panel panel-default">
+					<div class="panel-heading">Rotação do mapa</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div class="table-responsive">
+							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+								<div class="carousel-inner">
+									<div class="item {{m.map == gridOptions.message.SERVER_INFO.map ? 'active' : '' }}" ng-repeat="m in gridOptions.message.SERVER_INFO.maps.maps" >
+										<span style="color: white; position: absolute; margin-left: 20px; margin-top: 20px;" >
+											<span style="font-size: 30px; font-weight: bolder;">{{buscarMapa(m.map)}}</span><br />
+											<span style="font-size: 15px;">{{buscarTipoServidor(m.mapMode)}}</span>
+										</span> 
+										<img class="slide-image" src="../bf4/img/bf4/maps_large/{{m.map.toLowerCase()}}.jpg" alt="{{buscarMapa(m.map)}}" /> 
+									</div>
+								</div>
+								<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev" > 
+									<span class="glyphicon glyphicon-chevron-left"></span>
+								</a> 
+								<a class="right carousel-control" href="#carousel-example-generic" data-slide="next" > 
+									<span class="glyphicon glyphicon-chevron-right"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">Online Players in CHM</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table" style="color: red">
+								<thead>
+									<tr>
+										<td>Nome Pessoal</td>
+										<td>Username</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="{{ isCHM(x.persona.personaId) ? 'lineCHM' : '' }}"
+										ng-repeat="x in gridOptions.message.SERVER_PLAYERS">
+										<td><a
+											href="http://battlelog.battlefield.com/bf4/soldier/{{ x.persona.personaName }}/stats/{{ x.persona.personaId }}/xboxone/"
+											target="_blank"> {{ isCHM(x.persona.personaId) ? "[CHM]"
+												: "" }} {{ x.persona.personaName }}</a></td>
+										<td>{{ x.persona.user.username }}</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td>Total de players</td>
+										<td>{{gridOptions.message.SERVER_PLAYERS.length}}</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<!-- /.table-responsive -->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="server" class="container content-section text-center" ng-controller="mainController">
+		<div class="row">
+			<div class="panel panel-default">
+					<div class="panel-heading">CHACAIS MULTIPLAYERS SERVER</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<div class="table-responsive">
+							<a href="http://battlelog.battlefield.com/bf4/servers/show/xboxone/0d1c7c91-8cc9-4e0f-9d03-f5ceead3700f" target="_blank">Entre em nosso server e adicione aos favoritos!</a>
+							
+						</div>
+					</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer -->
+	<footer>
+		<div class="container text-center">
+			<p>Copyright &copy; Chacais Multiplayers 2016</p>
+		</div>
+	</footer>
+
+	<!-- jQuery -->
+	<script src="vendor/jquery/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Theme JavaScript -->
+	<script src="js/grayscale.min.js"></script>
+	<script	src="js/angular.min.js"></script>
+	<script src="js/script.js"></script>
+	<script>
+		$('.carousel').carousel({
+          interval: 0
+      })
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,585 @@
+/*!
+ * Start Bootstrap - Grayscale v3.3.7+1 (http://startbootstrap.com/template-overviews/grayscale)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  background-color: black;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 35px;
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+p {
+  margin: 0 0 25px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  p {
+    margin: 0 0 35px;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+}
+a {
+  color: #EE3B3B;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #1d9b6c;
+}
+.light {
+  font-weight: 400;
+}
+.navbar-custom {
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: black;
+}
+.navbar-custom .navbar-toggle {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+}
+.navbar-custom .navbar-toggle:focus,
+.navbar-custom .navbar-toggle:active {
+  outline: none;
+}
+.navbar-custom .navbar-brand {
+  font-weight: 700;
+}
+.navbar-custom .navbar-brand:focus {
+  outline: none;
+}
+.navbar-custom a {
+  color: white;
+}
+.navbar-custom .nav li a {
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+.navbar-custom .nav li a:hover {
+  color: rgba(255, 255, 255, 0.8);
+  outline: none;
+  background-color: transparent;
+}
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:active {
+  outline: none;
+  background-color: transparent;
+}
+.navbar-custom .nav li.active {
+  outline: none;
+}
+.navbar-custom .nav li.active a {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.navbar-custom .nav li.active a:hover {
+  color: white;
+}
+@media (min-width: 768px) {
+  .navbar-custom {
+    padding: 20px 0;
+    border-bottom: none;
+    letter-spacing: 1px;
+    background: transparent;
+    -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+  }
+  .navbar-custom.top-nav-collapse {
+    padding: 0;
+    background: black;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+.content-default {
+	display: table;
+	width: 100%;
+	height: auto;
+	color: white;
+	background-color: black;
+}
+
+.content-default .intro {
+	display: table;
+	padding: 250px 0;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	color: white;
+	background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+	background-color: black;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+.intro .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro .intro-body .brand-heading {
+  font-size: 40px;
+}
+.intro .intro-body .intro-text {
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  .intro {
+    height: 100%;
+    padding: 0;
+  }
+  .intro .intro-body .brand-heading {
+    font-size: 100px;
+  }
+  .intro .intro-body .intro-text {
+    font-size: 26px;
+  }
+}
+/*
+*  inicio style battlefield 4
+*/
+.intro-bf4 {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/intro-bg-old2.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro-bf4 .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro-bf4 .intro-body .brand-heading {
+  font-size: 40px;
+}
+.intro-bf4 .intro-body .intro-text {
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  .intro-bf4 {
+    height: 100%;
+    padding: 0;
+  }
+  .intro-bf4.intro-body .brand-heading {
+    font-size: 100px;
+  }
+  .intro-bf4.intro-body .intro-text {
+    font-size: 26px;
+  }
+}
+/*
+*  fim style battlefield 4
+*/
+
+/*
+*  inicio style battlefield 1
+*/
+
+.intro-bf1 {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/intro-bg-bf1.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro-bf1 .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro-bf1 .intro-body .brand-heading{
+  font-size: 40px;
+  color:#5C4343;
+}
+.intro-bf1 .intro-body .intro-text {
+  font-size: 18px;
+}
+
+.intro-bf1 .fa-angle-double-down{
+	color:#5C4343;
+}
+
+.bf1 .brand-heading{
+	color: #5C4343;
+}
+
+@media (min-width: 768px) {
+  .intro-bf1 {
+    height: 100%;
+    padding: 0;
+  }
+  .intro-bf1.intro-body .brand-heading{
+    font-size: 100px;
+	color:#5C4343;
+  }
+  .intro-bf1.intro-body .intro-text {
+    font-size: 26px;
+  }
+}
+
+/*
+*  fim style battlefield 1
+*/
+
+/*
+*  Inicio style Call Of Dutty
+*/
+.intro-bo2 {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/intro-bg-bo2.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro-bo2 .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro-bo2 .intro-body .brand-heading{
+  font-size: 40px;
+  color:#EE3B3B;
+}
+.intro-bo2 .intro-body .intro-text {
+  font-size: 18px;
+}
+
+.intro-bo2 .fa-angle-double-down{
+	color:#EE3B3B;
+}
+
+.bo2 .brand-heading{
+	color: #EE3B3B;
+}
+
+@media (min-width: 768px) {
+  .intro-bo2 {
+    height: 100%;
+    padding: 0;
+  }
+  .intro-bo2.intro-body .brand-heading{
+    font-size: 100px;
+	color:#5C4343;
+  }
+  .intro-bo2.intro-body .intro-text {
+    font-size: 26px;
+  }
+}
+
+/*
+*  fim style Call Of Dutty
+*/
+
+/*
+*  inicio style battlefield 1
+*/
+
+.intro-fifa {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/intro-bg-fifa.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro-fifa .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro-fifa .intro-body .brand-heading{
+  font-size: 40px;
+  color:#017B28;
+}
+.intro-fifa .intro-body .intro-text {
+  font-size: 18px;
+}
+
+.intro-fifa .fa-angle-double-down{
+	color:#017B28;
+}
+
+.fifa .brand-heading{
+	color:#017B28;
+}
+
+@media (min-width: 768px) {
+  .intro-fifa {
+    height: 100%;
+    padding: 0;
+  }
+  .intro-fifa.intro-body .brand-heading{
+    font-size: 100px;
+	color:#017B28;
+  }
+  .intro-fifa.intro-body .intro-text {
+    font-size: 26px;
+  }
+}
+
+/*
+*  fim style battlefield 1
+*/
+
+.btn-circle {
+  width: 70px;
+  height: 70px;
+  margin-top: 15px;
+  padding: 7px 16px;
+  border: 2px solid white;
+  border-radius: 100% !important;
+  font-size: 40px;
+  color: white;
+  background: transparent;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+.btn-circle:hover,
+.btn-circle:focus {
+  outline: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+.btn-circle i.animated {
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 1s;
+  -moz-transition-property: -moz-transform;
+  -moz-transition-duration: 1s;
+}
+.btn-circle:hover i.animated {
+  -webkit-animation-name: pulse;
+  -moz-animation-name: pulse;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+}
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.content-section {
+  padding-top: 100px;
+}
+.download-section {
+  width: 100%;
+  padding: 50px 0;
+  color: white;
+  background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+#map {
+  width: 100%;
+  height: 200px;
+  margin-top: 100px;
+}
+@media (min-width: 767px) {
+  .content-section {
+    padding-top: 100px;
+  }
+  .download-section {
+    padding: 100px 0;
+  }
+  #map {
+    height: 400px;
+    margin-top: 250px;
+  }
+}
+.btn {
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0;
+}
+.btn-default {
+  border: 1px solid #EE3B3B;
+  color: #EE3B3B;
+  background-color: transparent;
+}
+.btn-default:hover,
+.btn-default:focus {
+  border: 1px solid #EE3B3B;
+  outline: none;
+  color: black;
+  background-color: #EE3B3B;
+}
+ul.banner-social-buttons {
+  margin-top: 0;
+}
+@media (max-width: 1199px) {
+  ul.banner-social-buttons {
+    margin-top: 15px;
+  }
+}
+@media (max-width: 767px) {
+  ul.banner-social-buttons li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+  ul.banner-social-buttons li:last-child {
+    margin-bottom: 0;
+  }
+}
+footer {
+  padding: 50px 0;
+}
+footer p {
+  margin: 0;
+}
+::-moz-selection {
+  text-shadow: none;
+  background: #fcfcfc;
+  background: rgba(255, 255, 255, 0.2);
+}
+::selection {
+  text-shadow: none;
+  background: #fcfcfc;
+  background: rgba(255, 255, 255, 0.2);
+}
+img::selection {
+  background: transparent;
+}
+img::-moz-selection {
+  background: transparent;
+}
+body {
+  webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+a.page-scroll {
+	color: #EE3B3B
+}
+
+a.linkPlayer:hover {
+	text-decoration: underline;
+}
+
+tr.lineCHM, tr.lineCHM a{
+	background-color: red;
+	color: black;
+}
+
+.game-box{
+     width: 351px;
+	 height: 220px;
+     background-position: center center;
+     background-size: cover;
+     background-repeat: no-repeat;
+	 margin-top: 10px;
+	 margin-left:5px;
+}
+
+.game-box.game-bf1 {
+	background-image: url(http://d34ymitoc1pg7m.cloudfront.net/common/menu/section-selection-bf1-a9d78e45.jpg); 
+}
+
+.game-box.game-bf4{
+	background-image: url(http://d34ymitoc1pg7m.cloudfront.net/common/menu/section-select-bf4-56d900fe.jpg); 
+}
+
+.game-box.game-bfh{
+	background-image: url(http://eaassets-a.akamaihd.net/battlelog/bb/bfh/logos/section-selection-bfh-c073105d.png); 
+}
+
+.panel-default{
+	background-color: black;
+	margin-right: 5px;
+	border-color: gray;
+}
+
+.panel-default .panel-heading{
+	background-color: black;
+	color: white;
+	font-weight: bolder;
+	border-color: gray;
+}
+
+.label-form-small {
+	width: 150px;	
+}

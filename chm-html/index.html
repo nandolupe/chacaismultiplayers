@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html ng-app="mainModule" ng-controller="mainController">
+
+<head>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89150023-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89150023-1');
+</script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>{{ message.title }}</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="bf4/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom Fonts -->
+<link href="bf4/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"	rel="stylesheet" type="text/css">
+
+<!-- Theme CSS -->
+<link href="bf4/css/grayscale.min.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+	
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation" >
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+					Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="index.html#page-top"> <i class="fa"></i><span class="light">
+					<img src="bf4/img/chacais-logo.png" style="height: 27px;" /></span> {{ message.title }}
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a class="page-scroll" href="bf4/quero-ser-chm.html">Faça Parte</a></li>
+					<li><a class="page-scroll" href="index.html#divisoes">Games</a></li>
+					<li><a class="page-scroll" href="index.html#sobre">Sobre</a></li>
+					<li><a class="page-scroll" href="bf4/random.html">Sorteio</a></li>
+					<li><a class="page-scroll" href="index.html#contact">Contato</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	<!-- /.container -->
+	</nav>
+	
+	<div class="content-default" >
+	<!-- Intro Header -->
+	<header class="intro intro-principal">
+		<div class="intro-body">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 class="brand-heading" style="color: #EE3B3B">{{message.clan.tag}}</h1>
+						<p class="intro-text">{{message.apresentacao}}</p>
+						<a href="#divisoes" class="btn btn-circle page-scroll"> <i
+							class="fa fa-angle-double-down animated"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- About Section -->
+	<section id="divisoes" class="container content-section text-center">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2">
+				<h1>Games que jogamos</h1>
+				<a href="bf4/index.html" class="game-box"><img class="game-box" src="http://d34ymitoc1pg7m.cloudfront.net/common/menu/section-select-bf4-56d900fe.jpg" /></a>
+				<a href="bf4/index-bf1.html" class="game-box" ><img class="game-box" src="http://d34ymitoc1pg7m.cloudfront.net/common/menu/section-selection-bf1-a9d78e45.jpg" /></a>
+				<a href="bf4/index-bo2.html" class="game-box"><img class="game-box" src="bf4/img/call-of-dutty-banner.jpg" /></a>
+				<a href="bf4/index-fifa.html" class="game-box"><img class="game-box" src="bf4/img/fifa-banner.jpg" /></a>
+			</div>
+		</div>
+	</section>
+	
+	<section id="sobre" class="content-section text-center">
+		<div class="">
+			<div class="container">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h2>Sobre Nós</h2>
+					<p>
+						O clan CHACAIS MULTIPLAYERS nasceu com o propósito de unir amigos para jogos competitivos online. Atualmente estamos presente nas plataformas PC, XBOX One, XBOX 360 e PS4.
+					</p>
+					<p>
+						
+						
+						
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="container content-section text-center">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2">
+				<h2>Entre em contato com o [CHM]</h2>
+				<p><a href="bf4/quero-ser-chm.html" >Quer ser um CHM? Clique Aqui!</a></p>
+				<p>Para sugestões ou reclamações entre em contato pelas redes sociais ou por e-mail!</p>
+				<ul class="list-inline banner-social-buttons">
+					<li><a
+						href="{{message.link.youtube}}"
+						target="_blank"
+						class="btn btn-default btn-lg"><i class="fa fa-youtube fa-fw"></i>
+							<span class="network-name">Youtube</span></a></li>
+					<li><a href="{{message.link.facebook}}"
+						target="_blank"
+						class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i>
+							<span class="network-name">Facebook</span></a></li>
+					<li><a
+						href="{{message.link.battlelog}}/bf4/platoons/view/1030824216754355076/"
+						target="_blank"
+						class="btn btn-default btn-lg"><i class="fa fa-gamepad fa-fw"></i> <span
+							class="network-name">Platoon</span></a></li>
+					<li><a
+						href="mailto:{{message.link.gmail}}"
+						target="_blank"
+						class="btn btn-default btn-lg"><i class="fa fa-google fa-fw"></i> <span
+							class="network-name">GMAIL</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	
+	</div>
+	
+	<!-- Footer -->
+	<footer>
+		<div class="container text-center">
+			<p>{{message.copyright}}</p>
+		</div>
+	</footer>
+	<!-- jQuery -->
+	<script src="bf4/vendor/jquery/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="bf4/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Theme JavaScript -->
+	<script src="bf4/js/grayscale.min.js"></script>
+	<script	src="bf4/js/angular.min.js"></script>
+	<script src="bf4/js/script.js"></script>
+</body>
+</html>

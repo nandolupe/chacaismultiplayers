@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html ng-app="mainModule" ng-controller="mainController">
+
+<head>
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89150023-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89150023-1');
+</script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>{{ message.title }}</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+
+<!-- Theme CSS -->
+<link href="css/grayscale.min.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" style="background-image: url(img/977C7FC16.jpg);" data-target=".navbar-fixed-top" ng-app="mainModule">
+	<!-- Navigation -->
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+					Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="../index.html#page-top"> <i
+					class="fa"></i><span class="light"><img
+						src="img/chacais-logo.png" /></span> {{ message.title }}
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a class="page-scroll" href="quero-ser-chm.html">Faça Parte</a></li>
+					<li><a class="page-scroll" href="../index.html#divisoes">Games</a></li>
+					<li><a class="page-scroll" href="../index.html#sobre">Sobre</a></li>
+					<li><a class="page-scroll" href="../index.html#contact">Contato</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	<!-- /.container -->
+	</nav>
+	
+	<!-- About Section -->
+	<section id="server" class="container content-section text-left" ng-controller="mainController">
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">Passo a Passo para ser um CHM:</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						Bem vindo a Matilha CHM - Chacais Multiplayers<br/><br/>
+						O clã CHACAIS MULTIPLAYERS nasceu com o propósito de unir amigos para jogos competitivos online. Atualmente estamos presente nas plataformas PC, XBOX One, XBOX 360 e PS4. Venha fazer parte do nosso time!
+						<br /><br />
+						<b>Há Restrições para participar do clan?</b>
+						<br />
+						Resposta: Não! Todos são bem vindos a nossa matilha, do iniciante ao general!
+						<br /><br />
+						Como fazer parte da matilha? 
+						<br />Siga os passos abaixo:
+						<br /><br />
+						1º Passo:
+						<br />
+						Adicione os líderes como amigos na XBOX Live e no Battlelog:
+						<br />
+						M3rc3naryGunn3r (<a href="{{message.link.xboxlive}}/pt-BR/Profile?GamerTag=M3rc3naryGunn3r" target="_blank"/>Live</a>/<a href="{{message.link.battlelog}}/bf4/user/nandolupe/" target="_blank"/>Battlelog</a>)
+						<br />
+						Mr PiGleT Br (<a href="{{message.link.xboxlive}}/pt-BR/Profile?GamerTag=Mr%20PiGleT%20Br" target="_blank"/>Live</a>/<a href="{{message.link.battlelog}}/bf4/user/MrPiGleTBRr/" target="_blank"/>Battlelog</a>)
+						<br />
+						CartadaNET (<a href="{{message.link.xboxlive}}/pt-BR/Profile?GamerTag=CartadaNET" target="_blank"/>Live</a>/<a href="{{message.link.battlelog}}/bf4/user/alan67133787/" target="_blank"/>Battlelog</a>)
+						<br />
+						<br />
+						2º Passo:
+						<br />
+						<a href="mailto:{{message.link.gmail}}">Envie um e-mail</a> ou nos envie uma mensagem no <a href="{{message.link.facebook}}" target="_blank">facebook</a> informando que quer participar do clan e sua Gamertag.
+						<br /><br />
+						3º Passo:
+						<br />
+						Curta nossa pagina no <a href="{{message.link.facebook}}" target="_blank" >facebook</a>
+						<br /><br />
+						4º Passo:
+						<br />
+						Aguarde um dos líderes do CHM entrar em contato.
+					</div>
+					<!-- /.panel-body -->
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Footer -->
+	<footer>
+		<div class="container text-center">
+			<p>{{message.copyright}}</p>
+		</div>
+	</footer>
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
