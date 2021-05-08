@@ -317,7 +317,7 @@ a:focus {
 */
 
 /*
-*  inicio style battlefield 1
+*  inicio style FIFA
 */
 
 .intro-fifa {
@@ -369,8 +369,128 @@ a:focus {
 }
 
 /*
-*  fim style battlefield 1
+*  fim style FIFA
 */
+
+
+/*
+*  inicio style PUBG
+*/
+
+.intro-pubg {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/intro-bg-pubg.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro-pubg .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro-pubg .intro-body .brand-heading{
+  font-size: 40px;
+  color:#c5ca10;
+}
+.intro-pubg .intro-body .intro-text {
+  font-size: 18px;
+}
+
+.intro-pubg .fa-angle-double-down{
+	color:#c5ca10;
+}
+
+.pubg .brand-heading{
+	color: #c5ca10;
+}
+
+@media (min-width: 768px) {
+  .intro-pubg {
+    height: 100%;
+    padding: 0;
+  }
+  .intro-pubg.intro-body .brand-heading{
+    font-size: 100px;
+	color:#c5ca10;
+  }
+  .intro-pubg.intro-body .intro-text {
+    font-size: 26px;
+  }
+}
+
+/*
+*  fim style PUBG
+*/
+
+
+
+/*
+*  inicio style BATTLEFIELD V
+*/
+
+.intro-bfv {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/intro-bg-bfv.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro-bfv .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro-bfv .intro-body .brand-heading{
+  font-size: 40px;
+  color:#0a4d95;
+}
+.intro-bfv .intro-body .intro-text {
+  font-size: 18px;
+}
+
+.intro-bfv .fa-angle-double-down{
+	color:#0a4d95;
+}
+
+.bfv .brand-heading{
+	color: #0a4d95;
+}
+
+@media (min-width: 768px) {
+  .intro-bfv {
+    height: 100%;
+    padding: 0;
+  }
+  .intro-bfv.intro-body .brand-heading{
+    font-size: 100px;
+	color:#0a4d95;
+  }
+  .intro-bfv.intro-body .intro-text {
+    font-size: 26px;
+  }
+}
+
+/*
+*  fim style BATTLEFIELD V
+*/
+
+p.copyright {
+	font-size: 12px;
+	color: white;
+}
 
 .btn-circle {
   width: 70px;
